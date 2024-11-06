@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Minhas Reservas{% endblock %}
+
+{% block content %}
+<h2>Minhas Reservas</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Trecho</th>
+            <th>Poltrona</th>
+            <th>Servidor</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reserva in reservas %}
+        <tr>
+            <td>{{ reserva.trecho }}</td>
+            <td>{{ reserva.poltrona }}</td>
+            <td>{{ reserva.servidor }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('index') }}" class="btn btn-link">Voltar à Página Inicial</a>
+{% endblock %}

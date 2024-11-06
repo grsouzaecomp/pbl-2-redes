@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Viagens Disponíveis{% endblock %}
+
+{% block content %}
+<h2>Viagens Disponíveis</h2>
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th>Origem</th>
+            <th>Destino</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for viagem_id, viagem in viagens.items() %}
+        <tr>
+            <td>{{ viagem.origem }}</td>
+            <td>{{ viagem.destino }}</td>
+            <td>
+                <a href="{{ url_for('reservar', viagem_id=viagem_id, trecho_id='1') }}" class="btn btn-primary">Selecionar Viagem</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('visualizar_reservas') }}" class="btn btn-success mt-3">Minhas Reservas</a>
+{% endblock %}
